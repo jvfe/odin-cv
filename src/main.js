@@ -1,5 +1,6 @@
 import uniqid from "uniqid";
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
 import Education from "./components/education";
 import PersonalInfo from "./components/personalInfo";
 class Main extends Component {
@@ -76,12 +77,12 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div className="m-4">
         <PersonalInfo
           handleChange={this.handleChangePersonal}
           personal={this.state.personal}
         ></PersonalInfo>
-        <h1>Education</h1>
+        <h3>Education</h3>
         {this.state.educations.map((education) => {
           return (
             <Education
@@ -93,7 +94,9 @@ class Main extends Component {
             ></Education>
           );
         })}
-        <button onClick={this.handleAddEducation}>Add entry</button>
+        <Button variant="primary" onClick={this.handleAddEducation} block>
+          Add entry
+        </Button>
       </div>
     );
   }
