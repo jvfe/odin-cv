@@ -48,6 +48,32 @@ class Main extends Component {
     });
   };
 
+  handleDelEducation = (id) => {
+    this.setState((prevState) => {
+      const updatedEdu = prevState.educations.filter((eduItem) => {
+        return eduItem.id !== id;
+      });
+
+      return { ...prevState, educations: [...updatedEdu] };
+    });
+  };
+
+  handleAddEducation = () => {
+    this.setState((prevState) => {
+      let updatedEducations = [...prevState.educations];
+
+      updatedEducations.push({
+        id: uniqid(),
+        schoolName: "",
+        course: "",
+        fromDate: "",
+        toDate: "",
+      });
+
+      return { ...prevState, educations: [...updatedEducations] };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -55,16 +81,19 @@ class Main extends Component {
           handleChange={this.handleChangePersonal}
           personal={this.state.personal}
         ></PersonalInfo>
+        <h1>Education</h1>
         {this.state.educations.map((education) => {
           return (
             <Education
               handleChange={this.handleChangeEducation}
+              handleDel={this.handleDelEducation}
               education={education}
               key={education.id}
               id={education.id}
             ></Education>
           );
         })}
+        <button onClick={this.handleAddEducation}>Add entry</button>
       </div>
     );
   }

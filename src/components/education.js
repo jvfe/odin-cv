@@ -1,9 +1,8 @@
 import React from "react";
 
-const Education = ({ handleChange, education, id }) => {
+const Education = ({ handleChange, handleDel, education, id }) => {
   return (
     <div>
-      <h1>Education</h1>
       <input
         value={education.schoolName}
         type="text"
@@ -34,6 +33,7 @@ const Education = ({ handleChange, education, id }) => {
         name="toDate"
         onChange={(e) => handleChange(e, id)}
       />
+      <button onClick={() => handleDel(id)}>Remove entry</button>
     </div>
   );
 };
