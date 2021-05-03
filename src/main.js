@@ -1,9 +1,8 @@
 import uniqid from "uniqid";
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
-import Education from "./components/education";
-import Experience from "./components/experience";
-import PersonalInfo from "./components/personalInfo";
+import EduSection from "./components/Form/Education/eduSection";
+import ExpSection from "./components/Form/Experience/expSection";
+import PersonalInfo from "./components/Form/Personal/personalInfo";
 class Main extends Component {
   constructor() {
     super();
@@ -127,47 +126,22 @@ class Main extends Component {
   render() {
     return (
       <div className="p-4">
-        <div className="mb-4">
-          <PersonalInfo
-            handleChange={this.handleChangePersonal}
-            personal={this.state.personal}
-          ></PersonalInfo>
-        </div>
-
-        <div className="mb-4">
-          <h3>Education</h3>
-          {this.state.educations.map((education) => {
-            return (
-              <Education
-                handleChange={this.handleChangeEducation}
-                handleDel={this.handleDelEducation}
-                education={education}
-                key={education.id}
-                id={education.id}
-              ></Education>
-            );
-          })}
-          <Button variant="primary" onClick={this.handleAddEducation} block>
-            Add entry
-          </Button>
-        </div>
-        <div>
-          <h3>Experience</h3>
-          {this.state.experiences.map((experience) => {
-            return (
-              <Experience
-                handleChange={this.handleChangeExperience}
-                handleDel={this.handleDelExperience}
-                experience={experience}
-                key={experience.id}
-                id={experience.id}
-              ></Experience>
-            );
-          })}
-          <Button variant="primary" onClick={this.handleAddExperience} block>
-            Add entry
-          </Button>
-        </div>
+        <PersonalInfo
+          handleChange={this.handleChangePersonal}
+          personal={this.state.personal}
+        ></PersonalInfo>
+        <EduSection
+          educations={this.state.educations}
+          handleAdd={this.handleAddEducation}
+          handleDel={this.handleDelEducation}
+          handleChange={this.handleChangeEducation}
+        ></EduSection>
+        <ExpSection
+          experiences={this.state.experiences}
+          handleAdd={this.handleAddExperience}
+          handleDel={this.handleDelExperience}
+          handleChange={this.handleChangeExperience}
+        ></ExpSection>
       </div>
     );
   }
