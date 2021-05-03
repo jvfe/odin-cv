@@ -3,25 +3,25 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 
-const Education = ({ handleChange, handleDel, education, id }) => {
+const Experience = ({ handleChange, handleDel, experience, id }) => {
   return (
     <div className="my-1">
       <FormControl
         className="my-2"
-        value={education.schoolName}
+        value={experience.companyName}
         type="text"
-        id="schoolName"
-        name="schoolName"
-        placeholder="Institution"
+        id="companyName"
+        name="companyName"
+        placeholder="Company"
         onChange={(e) => handleChange(e, id)}
       />
       <FormControl
         className="my-2"
-        value={education.course}
+        value={experience.position}
         type="text"
-        id="course"
-        name="course"
-        placeholder="Title of study"
+        id="position"
+        name="position"
+        placeholder="Position"
         onChange={(e) => handleChange(e, id)}
       />
       <InputGroup className="my-2">
@@ -29,14 +29,14 @@ const Education = ({ handleChange, handleDel, education, id }) => {
           <InputGroup.Text>From / To</InputGroup.Text>
         </InputGroup.Prepend>
         <FormControl
-          value={education.fromDate}
+          value={experience.fromDate}
           type="date"
           id="fromDate"
           name="fromDate"
           onChange={(e) => handleChange(e, id)}
         />
         <FormControl
-          value={education.toDate}
+          value={experience.toDate}
           type="date"
           id="toDate"
           name="toDate"
@@ -50,4 +50,4 @@ const Education = ({ handleChange, handleDel, education, id }) => {
   );
 };
 
-export default Education;
+export default Experience;
