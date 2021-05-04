@@ -3,6 +3,11 @@ import React, { Component } from "react";
 import EduSection from "./components/Form/Education/eduSection";
 import ExpSection from "./components/Form/Experience/expSection";
 import PersonalInfo from "./components/Form/Personal/personalInfo";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+
 class Main extends Component {
   constructor() {
     super();
@@ -125,23 +130,37 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="p-4">
-        <PersonalInfo
-          handleChange={this.handleChangePersonal}
-          personal={this.state.personal}
-        ></PersonalInfo>
-        <EduSection
-          educations={this.state.educations}
-          handleAdd={this.handleAddEducation}
-          handleDel={this.handleDelEducation}
-          handleChange={this.handleChangeEducation}
-        ></EduSection>
-        <ExpSection
-          experiences={this.state.experiences}
-          handleAdd={this.handleAddExperience}
-          handleDel={this.handleDelExperience}
-          handleChange={this.handleChangeExperience}
-        ></ExpSection>
+      <div>
+        <Navbar bg="dark" variant="dark" className="py-3">
+          <Navbar.Brand>Odin-CV</Navbar.Brand>
+        </Navbar>
+        <Container fluid>
+          <Row className="p-md-5 p-1">
+            <Col
+              xs={12}
+              lg={6}
+              className="p-md-4 shadow mb-3 mb-lg-0 mr-3 bg-white rounded"
+            >
+              <PersonalInfo
+                handleChange={this.handleChangePersonal}
+                personal={this.state.personal}
+              ></PersonalInfo>
+              <EduSection
+                educations={this.state.educations}
+                handleAdd={this.handleAddEducation}
+                handleDel={this.handleDelEducation}
+                handleChange={this.handleChangeEducation}
+              ></EduSection>
+              <ExpSection
+                experiences={this.state.experiences}
+                handleAdd={this.handleAddExperience}
+                handleDel={this.handleDelExperience}
+                handleChange={this.handleChangeExperience}
+              ></ExpSection>
+            </Col>
+            <Col id="cv-view" className="bg-dark shadow rounded"></Col>
+          </Row>
+        </Container>
       </div>
     );
   }

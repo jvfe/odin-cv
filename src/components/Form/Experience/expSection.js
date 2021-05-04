@@ -4,7 +4,7 @@ import Experience from "./experience";
 
 const ExpSection = ({ experiences, handleChange, handleDel, handleAdd }) => {
   return (
-    <div>
+    <div className="mb-4">
       <h3>Experience</h3>
       {experiences.map((experience) => {
         return (

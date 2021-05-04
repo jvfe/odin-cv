@@ -1,7 +1,7 @@
 import Main from "./main";
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-light">
       <Main></Main>
     </div>
   );
