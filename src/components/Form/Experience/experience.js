@@ -6,24 +6,24 @@ import InputGroup from "react-bootstrap/InputGroup";
 const Experience = ({ handleChange, handleDel, experience, id }) => {
   return (
     <div className="my-1">
-      <FormControl
-        className="my-2"
-        value={experience.companyName}
-        type="text"
-        id="companyName"
-        name="companyName"
-        placeholder="Company"
-        onChange={(e) => handleChange(e, id)}
-      />
-      <FormControl
-        className="my-2"
-        value={experience.position}
-        type="text"
-        id="position"
-        name="position"
-        placeholder="Position"
-        onChange={(e) => handleChange(e, id)}
-      />
+      <InputGroup className="my-2">
+        <FormControl
+          value={experience.position}
+          type="text"
+          id="position"
+          name="position"
+          placeholder="Position"
+          onChange={(e) => handleChange(e, id)}
+        />
+        <FormControl
+          value={experience.companyName}
+          type="text"
+          id="companyName"
+          name="companyName"
+          placeholder="Company"
+          onChange={(e) => handleChange(e, id)}
+        />
+      </InputGroup>
       <InputGroup className="my-2">
         <InputGroup.Prepend>
           <InputGroup.Text>From / To</InputGroup.Text>

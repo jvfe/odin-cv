@@ -1,14 +1,9 @@
 import uniqid from "uniqid";
 import React, { Component } from "react";
-import EduSection from "./components/Form/Education/eduSection";
-import ExpSection from "./components/Form/Experience/expSection";
-import PersonalInfo from "./components/Form/Personal/personalInfo";
-import PersonalView from "./components/View/personalView";
-import EduView from "./components/View/eduView";
-import ExpView from "./components/View/expView";
-import Navbar from "react-bootstrap/Navbar";
+import Header from "./components/header";
+import CVForm from "./components/Form/form";
+import CVView from "./components/View/view";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 class Main extends Component {
@@ -138,38 +133,26 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="dark" variant="dark" className="py-3">
-          <Navbar.Brand>Odin-CV</Navbar.Brand>
-        </Navbar>
+        <Header></Header>
         <Container fluid>
           <Row className="p-md-5 p-1">
-            <Col
-              xs={12}
-              lg={6}
-              className="p-md-4 shadow mb-3 mb-lg-0 mr-3 bg-white rounded"
-            >
-              <PersonalInfo
-                handleChange={this.handleChangePersonal}
-                personal={this.state.personal}
-              ></PersonalInfo>
-              <EduSection
-                educations={this.state.educations}
-                handleAdd={this.handleAddEducation}
-                handleDel={this.handleDelEducation}
-                handleChange={this.handleChangeEducation}
-              ></EduSection>
-              <ExpSection
-                experiences={this.state.experiences}
-                handleAdd={this.handleAddExperience}
-                handleDel={this.handleDelExperience}
-                handleChange={this.handleChangeExperience}
-              ></ExpSection>
-            </Col>
-            <Col id="cv-view" className="border bg-light shadow rounded">
-              <PersonalView personal={this.state.personal}></PersonalView>
-              <ExpView experiences={this.state.experiences}></ExpView>
-              <EduView educations={this.state.educations}></EduView>
-            </Col>
+            <CVForm
+              personal={this.state.personal}
+              experiences={this.state.experiences}
+              educations={this.state.educations}
+              handleChangePersonal={this.handleChangePersonal}
+              handleAddEducation={this.handleAddEducation}
+              handleDelEducation={this.handleDelEducation}
+              handleChangeEducation={this.handleChangeEducation}
+              handleAddExperience={this.handleAddExperience}
+              handleDelExperience={this.handleDelExperience}
+              handleChangeExperience={this.handleChangeExperience}
+            ></CVForm>
+            <CVView
+              personal={this.state.personal}
+              experiences={this.state.experiences}
+              educations={this.state.educations}
+            ></CVView>
           </Row>
         </Container>
       </div>
