@@ -43,6 +43,16 @@ const Experience = ({ handleChange, handleDel, experience, id }) => {
           onChange={(e) => handleChange(e, id)}
         />
       </InputGroup>
+      <FormControl
+        className="my-2"
+        onChange={(e) => handleChange(e, id)}
+        value={experience.jobDescription}
+        id="jobDescription"
+        name="jobDescription"
+        as="textarea"
+        aria-label="With textarea"
+        placeholder="Job description"
+      />
       <Button variant="danger" onClick={() => handleDel(id)} block>
         Remove entry
       </Button>

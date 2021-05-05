@@ -5,6 +5,7 @@ import ExpSection from "./components/Form/Experience/expSection";
 import PersonalInfo from "./components/Form/Personal/personalInfo";
 import PersonalView from "./components/View/personalView";
 import EduView from "./components/View/eduView";
+import ExpView from "./components/View/expView";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
@@ -37,6 +38,7 @@ class Main extends Component {
           id: uniqid(),
           companyName: "",
           position: "",
+          jobDescription: "",
           fromDate: "",
           toDate: "",
         },
@@ -124,6 +126,7 @@ class Main extends Component {
         id: uniqid(),
         companyName: "",
         position: "",
+        jobDescription: "",
         fromDate: "",
         toDate: "",
       });
@@ -164,6 +167,7 @@ class Main extends Component {
             </Col>
             <Col id="cv-view" className="border bg-light shadow rounded">
               <PersonalView personal={this.state.personal}></PersonalView>
+              <ExpView experiences={this.state.experiences}></ExpView>
               <EduView educations={this.state.educations}></EduView>
             </Col>
           </Row>

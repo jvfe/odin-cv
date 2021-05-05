@@ -10,7 +10,8 @@ body,
 #cv-view {
   position: sticky;
   top: 10px;
-  height: 300mm;
+  max-height: 400mm;
+  overflow: hidden;
 }
 
 .header-section {
@@ -48,13 +49,23 @@ body,
   color: var(--secondary);
 }
 
+.job-container {
+  width: 25rem;
+}
+
+.job-description {
+  font-weight: 100;
+  font-size: 0.8em;
+  text-align: left;
+}
+
 .course-name {
   font-weight: bold;
   font-size: large;
 }
 
 .school-name {
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
 
