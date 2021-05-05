@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import EduSection from "./components/Form/Education/eduSection";
 import ExpSection from "./components/Form/Experience/expSection";
 import PersonalInfo from "./components/Form/Personal/personalInfo";
+import PersonalView from "./components/View/personalView";
+import EduView from "./components/View/eduView";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
@@ -25,6 +27,7 @@ class Main extends Component {
           id: uniqid(),
           schoolName: "",
           course: "",
+          city: "",
           fromDate: "",
           toDate: "",
         },
@@ -82,6 +85,7 @@ class Main extends Component {
         id: uniqid(),
         schoolName: "",
         course: "",
+        city: "",
         fromDate: "",
         toDate: "",
       });
@@ -118,8 +122,8 @@ class Main extends Component {
 
       UpdatedExp.push({
         id: uniqid(),
-        schoolName: "",
-        course: "",
+        companyName: "",
+        position: "",
         fromDate: "",
         toDate: "",
       });
@@ -158,7 +162,10 @@ class Main extends Component {
                 handleChange={this.handleChangeExperience}
               ></ExpSection>
             </Col>
-            <Col id="cv-view" className="bg-dark shadow rounded"></Col>
+            <Col id="cv-view" className="border bg-light shadow rounded">
+              <PersonalView personal={this.state.personal}></PersonalView>
+              <EduView educations={this.state.educations}></EduView>
+            </Col>
           </Row>
         </Container>
       </div>

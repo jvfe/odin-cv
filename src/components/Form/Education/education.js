@@ -6,15 +6,24 @@ import InputGroup from "react-bootstrap/InputGroup";
 const Education = ({ handleChange, handleDel, education, id }) => {
   return (
     <div className="my-1">
-      <FormControl
-        className="my-2"
-        value={education.schoolName}
-        type="text"
-        id="schoolName"
-        name="schoolName"
-        placeholder="Institution"
-        onChange={(e) => handleChange(e, id)}
-      />
+      <InputGroup className="my-2">
+        <FormControl
+          value={education.schoolName}
+          type="text"
+          id="schoolName"
+          name="schoolName"
+          placeholder="Institution"
+          onChange={(e) => handleChange(e, id)}
+        />
+        <FormControl
+          value={education.city}
+          type="text"
+          id="city"
+          name="city"
+          placeholder="City"
+          onChange={(e) => handleChange(e, id)}
+        />
+      </InputGroup>
       <FormControl
         className="my-2"
         value={education.course}
