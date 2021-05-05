@@ -12,10 +12,10 @@ class Main extends Component {
 
     this.state = {
       personal: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
+        firstName: "John",
+        lastName: "Doe",
+        email: "johndoe@mail.com",
+        phone: "5512341234",
         description: "",
       },
       educations: [
