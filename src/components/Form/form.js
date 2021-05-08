@@ -3,6 +3,7 @@ import PersonalInfo from "./Personal/personalInfo";
 import ExpSection from "./Experience/expSection";
 import EduSection from "./Education/eduSection";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const CVForm = ({
   cv,
@@ -13,6 +14,7 @@ const CVForm = ({
   handleAddExperience,
   handleDelExperience,
   handleChangeExperience,
+  handlePrint,
 }) => {
   return (
     <Col
@@ -36,6 +38,9 @@ const CVForm = ({
         handleDel={handleDelExperience}
         handleChange={handleChangeExperience}
       ></ExpSection>
+      <Button onClick={handlePrint} variant="success" block>
+        Print CV
+      </Button>
     </Col>
   );
 };

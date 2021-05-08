@@ -1,5 +1,6 @@
 import uniqid from "uniqid";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 import Header from "./header";
 import CVForm from "./Form/form";
 import CVView from "./View/view";
@@ -128,6 +129,11 @@ const Main = () => {
     });
   };
 
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
   return (
     <div>
       <Header></Header>
@@ -142,8 +148,9 @@ const Main = () => {
             handleAddExperience={handleAddExperience}
             handleDelExperience={handleDelExperience}
             handleChangeExperience={handleChangeExperience}
-          ></CVForm>
-          <CVView cv={cv}></CVView>
+            handlePrint={handlePrint}
+          />
+          <CVView cv={cv} ref={componentRef} />
         </Row>
       </Container>
     </div>
