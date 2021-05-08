@@ -5,9 +5,7 @@ import EduSection from "./Education/eduSection";
 import Col from "react-bootstrap/Col";
 
 const CVForm = ({
-  personal,
-  experiences,
-  educations,
+  cv,
   handleChangePersonal,
   handleAddEducation,
   handleDelEducation,
@@ -24,16 +22,16 @@ const CVForm = ({
     >
       <PersonalInfo
         handleChange={handleChangePersonal}
-        personal={personal}
+        personal={cv.personal}
       ></PersonalInfo>
       <EduSection
-        educations={educations}
+        educations={cv.educations}
         handleAdd={handleAddEducation}
         handleDel={handleDelEducation}
         handleChange={handleChangeEducation}
       ></EduSection>
       <ExpSection
-        experiences={experiences}
+        experiences={cv.experiences}
         handleAdd={handleAddExperience}
         handleDel={handleDelExperience}
         handleChange={handleChangeExperience}
